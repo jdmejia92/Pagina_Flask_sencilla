@@ -1,11 +1,12 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def la_funcion():
-    return "Hola, mundo!"
+    return render_template("mipagina.html")
 
-@app.route("/bye/<nombre>")
-def otra_funcion(nombre):
-    return f"hasta luego {nombre}"
+@app.route("/bye/<nombre>/<apellido>")
+def otra_funcion(nombre, apellido):
+    return render_template("despedida.html", name=nombre, surname=apellido)
+    return f"hasta luego {nombre} {apellido}"
