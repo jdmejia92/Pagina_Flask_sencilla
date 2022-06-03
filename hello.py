@@ -10,3 +10,7 @@ def la_funcion():
 def otra_funcion(nombre, apellido):
     return render_template("despedida.html", name=nombre, surname=apellido)
     return f"hasta luego {nombre} {apellido}"
+
+@app.route("/hello/<nombre>")
+def saludo(nombre):
+    return render_template("saludo.html", name=nombre)
